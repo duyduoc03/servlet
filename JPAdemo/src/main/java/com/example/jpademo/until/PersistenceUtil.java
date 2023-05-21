@@ -8,7 +8,7 @@ public class PersistenceUtil {
     static EntityManagerFactory entityManagerFactory;
     public static EntityManagerFactory getEntityManagerFactory(){
         if (entityManagerFactory == null){
-            entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            entityManagerFactory = Persistence.createEntityManagerFactory("jpa");
         }
         return entityManagerFactory;
     }

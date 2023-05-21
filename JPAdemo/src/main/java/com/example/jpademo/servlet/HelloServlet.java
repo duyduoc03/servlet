@@ -21,7 +21,7 @@ public class HelloServlet extends HttpServlet {
 
         // Hello
         PrintWriter out = response.getWriter();
-        UserEntity user = new UserEntity(1,"T2108E",20,"Hanoi");
+        UserEntity user = new UserEntity(2,"T2108E",20,"Hanoi");
         userDao.inserUser(user);
         out.println("create user success");
     }

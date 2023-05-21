@@ -1,4 +1,4 @@
-package com.example.duocspservlet;
+package com.example.duocspservlet.LogIn_LogOut;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +18,10 @@ public class loginServlet extends HttpServlet {
             if (userName.equals(user) && password.equals(pass)){
                 HttpSession session = req.getSession();
                 session.setAttribute("user",userName);
-                resp.sendRedirect("/hello-servlet");
+                resp.sendRedirect("/");
+            }
+            else {
+                resp.sendRedirect("login.jsp"); // nếu thông tin đăng nhập không hợp lệ, quay lại trang đăng nhập
             }
         } catch (Exception ex) {
             log(ex.getMessage());

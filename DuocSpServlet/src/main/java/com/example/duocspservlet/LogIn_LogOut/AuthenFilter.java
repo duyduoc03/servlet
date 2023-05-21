@@ -1,4 +1,4 @@
-package com.example.duocspservlet;
+package com.example.duocspservlet.LogIn_LogOut;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
