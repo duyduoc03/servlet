@@ -4,6 +4,7 @@ import com.example.jpademo.dao.UserDao;
 import com.example.jpademo.entity.UserEntity;
 
 import java.io.*;
+import java.util.List;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
@@ -21,9 +22,12 @@ public class HelloServlet extends HttpServlet {
 
         // Hello
         PrintWriter out = response.getWriter();
-        UserEntity user = new UserEntity(2,"T2108E",20,"Hanoi");
-        userDao.inserUser(user);
-        out.println("create user success");
+        //insert
+//        UserEntity user = new UserEntity(3,"T2108E",20,"Hanoi");
+//        userDao.insertUser(user);
+//        out.println("create user success");
+
+
     }
 
     public void destroy() {

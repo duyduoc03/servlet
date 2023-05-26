@@ -5,6 +5,8 @@ import com.example.jpademo.until.PersistenceUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class UserDao {
     EntityManager em;
@@ -14,13 +16,25 @@ public class UserDao {
         tran = em.getTransaction();
     }
 
-    public void inserUser(UserEntity user){
+    public List<UserEntity> getAllUsers() {
+        TypedQuery<UserEntity> query = em.createQuery("SELECT u FROM UserEntity u", UserEntity.class);
+        List<UserEntity> resultList = query.getResultList();
+        return resultList;
+    }
+
+    public List<UserEntity> searchUsersByName(String name) {
+        TypedQuery<UserEntity> query = em.createQuery("SELECT u FROM UserEntity u WHERE u.name LIKE :name", UserEntity.class);
+        query.setParameter("name", "%" + name + "%");
+        List<UserEntity> resultList = query.getResultList();
+        return resultList;
+    }
+
+    public void insertUser(UserEntity user) {
         try {
             tran.begin();
             em.persist(user);
             tran.commit();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             tran.rollback();
         }

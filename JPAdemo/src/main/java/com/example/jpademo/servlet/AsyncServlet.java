@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
 
-@WebServlet(name = "progress", value = "/progress")
+@WebServlet(value = "/asyncDemo", asyncSupported = true)
 
 public class AsyncServlet extends HttpServlet {
     @Override
@@ -18,7 +18,7 @@ public class AsyncServlet extends HttpServlet {
         Writer writer = resp.getWriter();
         writer.write("<progress id='progress'>max=100</progress>");
         AsyncContext asyncContext = req.startAsync();
-        asyncContext.start((new Runnable() {
+        asyncContext.start(new Runnable() {
             @Override
             public void run() {
                 int i = 0;
@@ -32,7 +32,10 @@ public class AsyncServlet extends HttpServlet {
                        System.out.println(ex.getMessage());
                    }
                }
+                asyncContext.complete();
             }
-        }));
+        });
+        writer.write("</br>");
+        writer.write("success test");
     }
 }
