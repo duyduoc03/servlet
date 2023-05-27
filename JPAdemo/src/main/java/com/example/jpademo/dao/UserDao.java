@@ -39,4 +39,36 @@ public class UserDao {
             tran.rollback();
         }
     }
+
+    public UserEntity getUserById(Integer id) {
+        UserEntity user = em.find(UserEntity.class, id);
+        return user;
+    }
+
+    public void updateUser(UserEntity user) {
+        try {
+            tran.begin();
+            em.merge(user);
+            tran.commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            tran.rollback();
+        }
+    }
+
+    public void deleteUser(UserEntity user) {
+        try {
+            tran.begin();
+            em.remove(user);
+            tran.commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            tran.rollback();
+        }
+    }
+
+    public void closeEntityManager() {
+        em.close();
+    }
+
 }

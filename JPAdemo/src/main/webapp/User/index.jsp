@@ -32,6 +32,7 @@
         <th>Name</th>
         <th>Age</th>
         <th>Address</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -40,6 +41,10 @@
         <td><%=user.getName() != null ? user.getName() : "" %></td>
         <td><%=user.getAge()%></td>
         <td><%=user.getAddress()%></td>
+        <td>
+            <a href="edit.jsp?id=<%=user.getId()%>">Edit</a>
+            <a href="/delete?id=<%=user.getId()%>">Delete</a>
+        </td>
     </tr>
     <% } %>
     </tbody>

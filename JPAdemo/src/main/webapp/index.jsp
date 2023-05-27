@@ -15,6 +15,8 @@
 <a href="testInclude.jsp?name=T2108E&age=100">test</a>
 <br/>
 <a href="User/index.jsp">User</a>
+<br/>
+<a href="UserTest/listUser.jsp">UserTest</a>
 <%--<%--%>
 <%--    session.setAttribute("session","session implicit object");--%>
 <%--    application.setAttribute("application","application implicit object");--%>

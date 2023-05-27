@@ -15,4 +15,11 @@
         <servlet-name>demo</servlet-name>
         <url-pattern>/demo</url-pattern>
     </servlet-mapping>
+<!--    tắt jsp ${...}-->
+<!--    <jsp-config>-->
+<!--        <jsp-property-group>-->
+<!--            <url-pattern>*.jsp</url-pattern>-->
+<!--            <el-ignored>true</el-ignored>-->
+<!--        </jsp-property-group>-->
+<!--    </jsp-config>-->
 </web-app>

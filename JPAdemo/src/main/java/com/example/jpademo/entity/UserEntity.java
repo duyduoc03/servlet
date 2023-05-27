@@ -21,6 +21,11 @@ public class UserEntity {
         this.age = age;
         this.address = address;
     }
+    public UserEntity(String name, Integer age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
 
     public Integer getId() {
         return id;

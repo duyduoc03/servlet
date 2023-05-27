@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.jpademo.dao.UserDao;
 import com.example.jpademo.entity.UserEntity;
 
-@WebServlet("/createUser")
+@WebServlet("/create")
 public class CreateUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

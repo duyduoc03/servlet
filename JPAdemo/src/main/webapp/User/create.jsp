@@ -5,7 +5,7 @@
 </head>
 <body>
   <h1>Tạo mới người dùng</h1>
-  <form method="post" action="../createUser">
+  <form method="post" action="../create">
     <label for="name">Tên:</label>
     <input type="text" id="name" name="name">
     <br>
