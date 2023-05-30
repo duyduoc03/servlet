@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container mt-3">
+    <a href="UserTest/CreateOrUpdate.jsp">create</a>
     <table class="table">
         <thead>
         <tr>

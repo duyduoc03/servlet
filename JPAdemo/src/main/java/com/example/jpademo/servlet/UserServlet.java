@@ -19,31 +19,22 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<UserEntity> user = userDao.getAllUsers();
-        req.setAttribute("user", user);
+        List<UserEntity> listUser = userDao.getAllUsers();
+        req.setAttribute("listUser", listUser);
         req.getRequestDispatcher("UserTest/listUser.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            UserEntity userEntity;
-            List<UserEntity> listUser;
-            String id = req.getParameter("id");
             String name = req.getParameter("name");
             String age = req.getParameter("age");
             String address = req.getParameter("address");
-            if (!Objects.equals(id,"")){
-                userEntity = new UserEntity( name, Integer.parseInt(age), address);
-                userDao.insertUser(userEntity);
-                List<UserEntity> user = userDao.getAllUsers();
-                req.setAttribute("user", user);
-                req.getRequestDispatcher("UserTest/listUser.jsp").forward(req,resp);
-            }
-            else {
-
-            }
-
+            UserEntity userEntity = new UserEntity(name, Integer.parseInt(age), address);
+            userDao.insertUser(userEntity);
+            List<UserEntity> listUser = userDao.getAllUsers();
+            req.setAttribute("listUser", listUser);
+            req.getRequestDispatcher("UserTest/listUser.jsp").forward(req,resp);
         } catch (Exception ex){
             log(ex.getMessage());
         }
