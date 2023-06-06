@@ -12,7 +12,7 @@
 
 <h1>List Employee</h1>
 <br>
-<h3><a href="/create">create</a></h3>
+<h3><a href="/Create">create</a></h3>
 <div class="container">
   <table class="table table-striped">
     <thead>

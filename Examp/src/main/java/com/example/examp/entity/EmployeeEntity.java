@@ -1,7 +1,6 @@
 package com.example.examp.entity;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.sql.Date;
 
 @Entity
@@ -12,7 +11,7 @@ public class EmployeeEntity {
     private Integer ID;
     private String FullName;
     private Date Birthday;
-    private TextArea Address;
+    private String Address;
     private String Position;
     private String Department;
 
@@ -20,7 +19,7 @@ public class EmployeeEntity {
 
     }
 
-    public EmployeeEntity(String fullName, Date birthday, TextArea address, String position, String department) {
+    public EmployeeEntity(String fullName, Date birthday, String address, String position, String department) {
         FullName = fullName;
         Birthday = birthday;
         Address = address;
@@ -28,7 +27,7 @@ public class EmployeeEntity {
         Department = department;
     }
 
-    public EmployeeEntity(Integer ID, String fullName, Date birthday, TextArea address, String position, String department) {
+    public EmployeeEntity(Integer ID, String fullName, Date birthday, String address, String position, String department) {
         this.ID = ID;
         FullName = fullName;
         Birthday = birthday;
@@ -61,11 +60,11 @@ public class EmployeeEntity {
         Birthday = birthday;
     }
 
-    public TextArea getAddress() {
+    public String getAddress() {
         return Address;
     }
 
-    public void setAddress(TextArea address) {
+    public void setAddress(String address) {
         Address = address;
     }
 

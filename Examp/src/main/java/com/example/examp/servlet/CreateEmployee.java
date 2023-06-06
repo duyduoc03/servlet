@@ -8,11 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
 import java.sql.Date;
 
-@WebServlet("/create")
+@WebServlet("/Create")
 public class CreateEmployee extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -29,15 +28,16 @@ public class CreateEmployee extends HttpServlet {
         String position = request.getParameter("position");
         String department = request.getParameter("department");
 
-        EmployeeDao employeeDao = new EmployeeDao();
         EmployeeEntity employee = new EmployeeEntity();
         employee.setFullName(fullName);
         employee.setBirthday(birthday);
-        employee.setAddress(new TextArea(address));
+        employee.setAddress(address);
         employee.setPosition(position);
-        employee.setPosition(department);
+        employee.setDepartment(department);
 
+        EmployeeDao employeeDao = new EmployeeDao();
         employeeDao.insertEmployee(employee);
+        employeeDao.closeEntityManager();
 
         response.sendRedirect("/index.jsp");
     }

@@ -8,7 +8,7 @@
 <body>
   <h1>Create Employee</h1>
   <div class="container mt-3">
-  <form method="post" action="/create">
+  <form method="post" action="/Create">
     <div class="mb-3">
       <label for="fullName">Full Name:</label>
       <input class="form-control" type="text" id="fullName" name="fullName">
