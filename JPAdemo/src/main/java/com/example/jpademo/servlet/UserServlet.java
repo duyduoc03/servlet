@@ -3,6 +3,7 @@ package com.example.jpademo.servlet;
 import com.example.jpademo.dao.UserDao;
 import com.example.jpademo.entity.UserEntity;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,10 +29,17 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             String name = req.getParameter("name");
-            String age = req.getParameter("age");
+            int age = Integer.parseInt(req.getParameter("age"));
             String address = req.getParameter("address");
-            UserEntity userEntity = new UserEntity(name, Integer.parseInt(age), address);
-            userDao.insertUser(userEntity);
+
+            String userId = req.getParameter("id");
+            if (userId != null) {
+                int id = Integer.parseInt(userId);
+                userDao.updateUser(new UserEntity(id, name, age, address));
+            } else {
+                userDao.insertUser(new UserEntity(name, age, address));
+            }
+
             List<UserEntity> listUser = userDao.getAllUsers();
             req.setAttribute("listUser", listUser);
             req.getRequestDispatcher("UserTest/listUser.jsp").forward(req,resp);

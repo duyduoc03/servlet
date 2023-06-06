@@ -18,6 +18,7 @@
             <th scope="col">Name</th>
             <th scope="col">Age</th>
             <th scope="col">Address</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +30,9 @@
                         <td>${user.name}</td>
                         <td><c:out value="${user.age}" /></td>
                         <td>${user.address}</td>
+                        <td>
+                            <a href="UserTest/CreateOrUpdate.jsp?id=${user.id}" class="btn btn-primary">Edit</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </c:when>
