@@ -14,12 +14,14 @@
 <a href="hello-servlet">Hello Servlet</a>
 <br/>
 <a href="demo.jsp?name=duoc&age=19">demo</a>
-<br/>
-<a href="testInclude.jsp?name=T2108E&age=100">test</a>
+<%--<br/>--%>
+<%--<a href="testInclude.jsp?name=T2108E&age=100">test</a>--%>
 <br/>
 <a href="User/index.jsp">User</a>
 <br/>
 <a href="userServlet">UserTest</a>
+<br/>
+<a href="localeServlet?lang=vi_VN">locale</a>
 <%--<%--%>
 <%--    session.setAttribute("session","session implicit object");--%>
 <%--    application.setAttribute("application","application implicit object");--%>

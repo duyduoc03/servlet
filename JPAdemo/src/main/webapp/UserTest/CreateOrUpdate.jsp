@@ -17,17 +17,18 @@
   <form action="/userServlet" method="post">
     <div class="mb-3">
       <label class="form-label">Name</label>
-      <input type="text" name="name" class="form-control">
+      <input type="text" name="name" class="form-control" value="${not empty user ? user.name : ''}" >
     </div>
     <div class="mb-3">
       <label class="form-label">Age</label>
-      <input type="number" name="age" class="form-control">
+      <input type="number" name="age" class="form-control" value="${not empty user ? user.age : ''}">
     </div>
     <div class="mb-3">
       <label class="form-label">Address</label>
-      <input type="text" name="address" class="form-control">
+      <input type="text" name="address" class="form-control" value="${not empty user ? user.address : ''}">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" onclick="history.back()">Cancel</button>
   </form>
 </div>
 
